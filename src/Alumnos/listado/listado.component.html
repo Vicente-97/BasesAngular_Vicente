@@ -1,0 +1,31 @@
+<h1>Listado de alumnos</h1>
+
+<ul id="lista">
+<li *ngFor="let item of Alumnos;
+ let i=index; 
+ let par=even;
+ let impares=odd"
+[ngClass]="{impar:impares, pares:par}">{{i+1}} - {{item}}</li>
+
+</ul>
+<hr>
+
+<!-- importante poner la condicion entera dentro de las comillas -->
+<h3 *ngIf="ListaNueva.length>0; else malo">Aprobados</h3>
+<ng-template #malo>
+    <h3>Que malo eres no has aprobado a nadie todavia.</h3>
+</ng-template>
+
+
+<!-- <h3 *ngIf="ListaNueva.length<=0">Que malo eres no has aprobado a nadie todavia.</h3> -->
+
+<ul>
+    <li *ngFor="let item of ListaNueva;
+    let i=index; 
+    let par=even;
+    let impares=odd"
+   [ngClass]="{impar:impares, pares:par}">{{i+1}} - {{item}}
+
+</ul>
+
+<button (click)="aggregateList()">Aprobar</button>
